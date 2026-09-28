@@ -9,9 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.104.0",
+    "axios": "^1.20.0",
+    "icons": "^1.0.0",
     "next": "16.3.6",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react": "^19.2.8",
+    "react-dom": "19.2.8",
+    "react-icons": "^5.7.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
