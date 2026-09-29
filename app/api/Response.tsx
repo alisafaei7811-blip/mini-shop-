@@ -9,17 +9,30 @@ export type Product = {
   thumbnail: string;
   images: string[];
 };
+
 export type Products = {
   products: Product[];
   limit: number;
   skip: number;
   total: number;
 };
+
 const request = axios.create({
   baseURL: "https://dummyjson.com",
 });
-export default async function Response(limit: number) {
-  const response = await request.get<Products>(`/products?limit=${limit}`);
+
+export default async function Response(limit: number, category?: string) {
+  let url = "/products";
+
+  if (category) {
+    url = `/products/category/${encodeURIComponent(category)}`;
+  }
+
+  const response = await request.get<Products>(url, {
+    params: {
+      limit,
+    },
+  });
 
   return response.data;
 }

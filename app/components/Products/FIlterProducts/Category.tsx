@@ -1,6 +1,10 @@
-import { useRouter, useSearchParams } from "next/navigation";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 export default function FilterCategory() {
+  const route = useRouter();
+
   const categories = [
     { label: "Beauty", value: "beauty" },
     { label: "Fragrances", value: "fragrances" },
@@ -17,14 +21,19 @@ export default function FilterCategory() {
     { label: "Smartphones", value: "smartphones" },
     { label: "Tablets", value: "tablets" },
   ];
-  const route = useRouter();
-  const searchParams = useSearchParams;
 
   return (
-    <div className="flex justify-around items-center flex-wrap mt-30 gap-5">
+    <div className="mt-30 flex justify-around items-center gap-5 border-2 rounded-2xl p-3">
       {categories.map((item) => (
-        <div key={item.value}>
-          <button className=" border-2 rounded-2xl p-3">{item.label}</button>
+        <div key={item.value} >
+          <button
+            onClick={() => {
+              route.push(`/products?category=${item.value}`);
+            }}
+          >
+            {item.label}
+          </button>
+          
         </div>
       ))}
     </div>

@@ -1,8 +1,9 @@
-import FilterCategory from "@/app/components/Products/FIlterProducts/Category";
-import InputFilter from "@/app/components/Products/FIlterProducts/inputFilter";
-import Products from "@/app/components/Products/products";
+import Products from "@/app/components/Home/Products";
+import FilterCategory from "@/app/components/products/FIlterProducts/Category";
+import InputFilter from "@/app/components/products/FIlterProducts/inputFilter";
 
-export default function Produts() {
+
+export default function ProductsPage() {
   return (
     <div>
       <FilterCategory></FilterCategory>
