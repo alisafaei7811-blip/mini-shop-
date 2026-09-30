@@ -33,7 +33,7 @@ export default function Footer() {
                 Cart
               </Link>
 
-              <Link href="/login" className="transition hover:text-white">
+              <Link href="/createAccount" className="transition hover:text-white">
                 Login
               </Link>
             </div>
