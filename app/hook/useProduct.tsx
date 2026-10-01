@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import Response from "../api/Response";
+import Response from "../getData/Response";
 
 type UseProductOptions = {
   limit: number;
