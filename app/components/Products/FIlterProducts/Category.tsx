@@ -24,7 +24,7 @@ export default function FilterCategory() {
   ];
 
   return (
-    <div className="mt-30 flex w-[95%] m-auto justify-around items-center gap-5 border-2 rounded-2xl p-3">
+    <div className="mt-10 flex w-[95%] m-auto justify-around items-center gap-5 border-2 rounded-2xl p-3">
       {categories.map((item) => (
         <div key={item.value} >
           <button

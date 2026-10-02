@@ -3,13 +3,18 @@ import Response from "../getData/Response";
 
 type UseProductOptions = {
   limit: number;
+  skip: number;
   category?: string;
 };
 
-export default function useProduct({ limit, category }: UseProductOptions) {
+export default function useProduct({
+  skip,
+  limit,
+  category,
+}: UseProductOptions) {
   return useQuery({
-    queryKey: ["products", limit, category],
+    queryKey: ["products", limit, category, skip],
 
-    queryFn: () => Response(limit, category),
+    queryFn: () => Response(limit, skip, category),
   });
 }

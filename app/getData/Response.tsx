@@ -21,7 +21,11 @@ const request = axios.create({
   baseURL: "https://dummyjson.com",
 });
 
-export default async function Response(limit: number, category?: string) {
+export default async function Response(
+  limit: number,
+  skip: number,
+  category?: string,
+) {
   let url = "/products";
 
   if (category) {
@@ -31,6 +35,7 @@ export default async function Response(limit: number, category?: string) {
   const response = await request.get<Products>(url, {
     params: {
       limit,
+      skip,
     },
   });
 
