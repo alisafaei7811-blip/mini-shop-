@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -9,9 +8,7 @@ import { z } from "zod";
 
 const schema = z.object({
   email: z.string().email("Invalid email"),
-  password: z
-    .string()
-    .min(8, "Password must be at least 8 characters"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
 type SignInForm = z.infer<typeof schema>;
@@ -28,17 +25,8 @@ export default function SignIn() {
   });
 
   const submit = async (data: SignInForm) => {
-    const result = await signIn("credentials", {
-      email: data.email,
-      password: data.password,
-      redirect: false,
-    });
-
-    console.log("RESULT:", result);
-
-    if (result?.ok) {
-      router.push("/");
-    }
+    console.log(data);
+    router.push("/");
   };
 
   return (
@@ -111,7 +99,7 @@ export default function SignIn() {
           </button>
 
           <p className="mt-6 text-center text-sm text-zinc-500">
-            Don't have an account?
+            Dont have an account?
             <Link
               href="/createAccount"
               className="text-white transition hover:underline"

@@ -10,8 +10,8 @@ export default function ProductCard(
   }>,
 ) {
   const { data, isLoading, error } = useProduct({ limit: 1 });
-  if (isLoading) return <p>loading...</p>;
-  if (error) return <p>{error.message}</p>;
+  if (isLoading) return <p className="text-center text-2xl font-bold mt-52">loading...</p>;
+  if (error) return <p className="text-center text-2xl font-bold mt-52">{error.message}</p>;
   return (
     <div>
       {data?.products.map((item) => (
