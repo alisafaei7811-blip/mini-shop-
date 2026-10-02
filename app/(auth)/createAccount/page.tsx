@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -35,6 +36,7 @@ const schema = z
 type LoginForm = z.infer<typeof schema>;
 
 export default function Login() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -45,6 +47,7 @@ export default function Login() {
 
   const submit = (data: LoginForm) => {
     console.log(data);
+    router.push("/");
   };
 
   return (
@@ -178,7 +181,7 @@ export default function Login() {
           </button>
 
           <p className="mt-6 text-center text-sm text-zinc-500">
-            Already have an account?{" "}
+            Already have an account?
             <Link
               href="/login"
               className="text-white transition hover:underline"

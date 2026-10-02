@@ -10,16 +10,18 @@ export default function Products() {
   const category = searchParams.get("category");
 
   const { data, isLoading, error } = useProduct({
-    limit: 10,
+    limit: 100,
     category: category ?? "",
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return <p className="text-center text-2xl font-bold">Loading...</p>;
 
-  if (error) return <p>{error.message}</p>;
+  if (error)
+    return <p className="text-center text-2xl font-bold">{error.message}</p>;
 
   return (
-    <div className="flex flex-wrap items-center justify-around gap-5 ml-auto mt-10">
+    <div className="flex justify-around items-center w-[88%] mt-20 gap-5 m-auto flex-wrap">
       {data?.products.map((item) => (
         <ProductCard item={item} key={item.id} />
       ))}
