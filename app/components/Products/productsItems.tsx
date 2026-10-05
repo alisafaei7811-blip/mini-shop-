@@ -6,7 +6,7 @@ import ProductCard from "../productCard";
 import { useEffect, useState } from "react";
 import { Product } from "@/app/getData/Response";
 
-export default function Products() {
+export default function ProductItems() {
   const searchParams = useSearchParams();
 
   const category = searchParams.get("category");
@@ -23,7 +23,14 @@ export default function Products() {
 
   useEffect(() => {
     if (data?.products) {
-      setProducts((prev) => [...prev, ...data.products]);
+      setProducts((prev) => {
+        const merged = [...prev, ...data.products];
+
+        return merged.filter(
+          (item, index, self) =>
+            index === self.findIndex((p) => p.id === item.id),
+        );
+      });
     }
   }, [data]);
 
