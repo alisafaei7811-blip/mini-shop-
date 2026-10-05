@@ -23,7 +23,7 @@ export default function Header() {
           Home
         </Link>
 
-        <Link href="/products" className="hover:text-gray-500">
+        <Link href="/Products" className="hover:text-gray-500">
           Products
         </Link>
 
@@ -50,7 +50,7 @@ export default function Header() {
           </div>
         )}
 
-        <Link href="/cart">
+        <Link href="/card">
           <FaShoppingCart size={25} />
         </Link>
 

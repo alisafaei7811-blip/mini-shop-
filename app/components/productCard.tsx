@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { UseContext } from "../context/UseContext";
+import { useContext } from "react";
 
 export default function ProductCard({ item }) {
+  const { dispatch } = useContext(UseContext);
   return (
     <div className="group overflow-hidden rounded-2xl border  shadow-sm w-[300px] transition hover:-translate-y-1 hover:shadow-lg">
       <div className="relative flex h-56 items-center justify-center">
@@ -24,7 +27,10 @@ export default function ProductCard({ item }) {
 
         <p className="text-xl font-bold ">${item.price}</p>
 
-        <button className="w-full rounded-xl bg-black px-4 py-3 font-medium text-white transition hover:bg-gray-800 active:scale-95">
+        <button
+          className="w-full rounded-xl bg-black px-4 py-3 font-medium text-white transition hover:bg-gray-800 active:scale-95"
+          onClick={() => dispatch({ type: "add", payload: item })}
+        >
           BUY
         </button>
       </div>
